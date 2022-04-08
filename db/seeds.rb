@@ -8,11 +8,17 @@
 
 30.times do |n|
   Room.create!(
-    name:"部屋名#{n}",
-    place:"会議室#{n}",
-    number: n,
-    terms_of_use: "#{n}人以上で使用しないこと",
-    created_at: "2022-04-04 14:00:00",
-    updated_at: "2022-04-04 14:00:00"
+    name:"部屋名#{n+1}#00",
+    place:"東京",
+    number: 10,
+    terms_of_use: "#{n+1}人以上で使用しないこと"
+  )
+  Entry.create!(
+    user_name:"予約者名#{n+1}",
+    user_email:"reserved_email#{n+1}@samplemail.com",
+    reserved_date:"2022-04-#{n+1} 00:00:00",
+    usage_time: n+1.to_f,
+    room_id: n+1,
+    people: n+1
   )
 end
