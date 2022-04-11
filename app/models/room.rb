@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  has_many :entries, dependent: :destroy
+
   before_validation :room_name_checker
 
   validates :name, :place, :number, presence: true
