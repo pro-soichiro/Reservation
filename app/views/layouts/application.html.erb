@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+        <li><%= link_to "トップ",root_path %></li>
+        <li><%= link_to "会議室登録",new_room_path %></li>
+        <li><%= link_to "会議室一覧",rooms_path %></li>
+      </ul>
+    </header>
     <%= yield %>
+    <footer>
+      <p>Ⓒ Copyright resereved rails Reservation</p>
+    </footer>
   </body>
 </html>
