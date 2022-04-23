@@ -20,21 +20,6 @@
   <strong>人数</strong>
   <%= @entry.people %>人
 </p>
-<%= form_with(model: @entry,local: true) do |form| %>
-  <%= form.hidden_field :user_name %>
-  <%= form.hidden_field :user_email %>
-  <%= form.hidden_field :reserved_date %>
-  <%= form.hidden_field :room_id %>
-  <%= form.hidden_field :usage_time %>
-  <%= form.hidden_field :people %>
-  <%= form.submit 'OK' %>
-<% end %>
-<%= form_with(model: @entry,url: confirm_back_entries_path, local: true) do |form| %>
-  <%= form.hidden_field :user_name %>
-  <%= form.hidden_field :user_email %>
-  <%= form.hidden_field :reserved_date %>
-  <%= form.hidden_field :room_id %>
-  <%= form.hidden_field :usage_time %>
-  <%= form.hidden_field :people %>
-  <%= form.submit 'NG' %>
-<% end %>
+
+<%= render 'confirm', entry: @entry, url: entries_path, submit: 'OK' %>
+<%= render 'confirm', entry: @entry, url: confirm_back_entries_path, submit: 'NG' %>

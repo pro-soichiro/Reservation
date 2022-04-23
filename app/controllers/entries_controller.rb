@@ -1,12 +1,12 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:destroy]
+  before_action :set_params, only: [:create,:confirm,:confirm_back]
 
   def new
     @entry = Entry.new(room_id: params[:room_id])
   end
 
   def create
-    @entry = Entry.new(entry_params)
 
     respond_to do |format|
       if @entry.save
@@ -31,20 +31,22 @@ class EntriesController < ApplicationController
   end
 
   def confirm
-    @entry = Entry.new(entry_params)
     @entry.valid?
     # TODO: バリデーションチェックが必要です。
 
   end
 
   def confirm_back
-    @entry = Entry.new(entry_params)
     render :new
   end
 
   private
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    def set_params
+      @entry = Entry.new(entry_params)
     end
 
     def entry_params
