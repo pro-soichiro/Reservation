@@ -31,6 +31,15 @@ class EntriesController < ApplicationController
   end
 
   def confirm
+    @entry = Entry.new(entry_params)
+    @entry.valid?
+    # TODO: バリデーションチェックが必要です。
+
+  end
+
+  def confirm_back
+    @entry = Entry.new(entry_params)
+    render :new
   end
 
   private

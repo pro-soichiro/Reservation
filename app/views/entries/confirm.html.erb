@@ -1,2 +1,40 @@
-<h1>Entries#confirm</h1>
-<p>Find me in app/views/entries/confirm.html.erb</p>
+<h1>予約確認画面</h1>
+
+<p>
+  <strong>予約者名</strong>
+  <%= @entry.user_name %>
+</p>
+<p>
+  <strong>Email</strong>
+  <%= @entry.user_email %>
+</p>
+<p>
+  <strong>日付</strong>
+  <%= @entry.reserved_date %>
+</p>
+<p>
+  <strong>時間</strong>
+  <%= @entry.usage_time %>
+</p>
+<p>
+  <strong>人数</strong>
+  <%= @entry.people %>人
+</p>
+<%= form_with(model: @entry,local: true) do |form| %>
+  <%= form.hidden_field :user_name %>
+  <%= form.hidden_field :user_email %>
+  <%= form.hidden_field :reserved_date %>
+  <%= form.hidden_field :room_id %>
+  <%= form.hidden_field :usage_time %>
+  <%= form.hidden_field :people %>
+  <%= form.submit 'OK' %>
+<% end %>
+<%= form_with(model: @entry,url: confirm_back_entries_path, local: true) do |form| %>
+  <%= form.hidden_field :user_name %>
+  <%= form.hidden_field :user_email %>
+  <%= form.hidden_field :reserved_date %>
+  <%= form.hidden_field :room_id %>
+  <%= form.hidden_field :usage_time %>
+  <%= form.hidden_field :people %>
+  <%= form.submit 'NG' %>
+<% end %>
