@@ -18,6 +18,12 @@ class EntriesController < ApplicationController
   end
 
   def destroy
+    @entry.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @entry.room, notice: "Entry was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   def index

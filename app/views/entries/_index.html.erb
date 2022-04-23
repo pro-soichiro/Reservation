@@ -14,5 +14,5 @@
   <strong>人数</strong>
   <%= entry.people %>人
 
-  <%= link_to '削除', entry_path(entry.id), method: :destroy, data: {confirm: "予約を削除してよろしいでしょうか？"}  %>
+  <%= link_to '削除', entry_path(entry.id), method: :delete, data: {confirm: "予約を削除してよろしいでしょうか？"}  %>
 </p>
