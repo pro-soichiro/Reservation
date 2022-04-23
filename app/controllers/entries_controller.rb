@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:destroy]
 
   def new
-    @entry = Entry.new
+    @entry = Entry.new(room_id: params[:room_id])
   end
 
   def create
@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry,notice: "Entry was successfully created." }
+        format.html { redirect_to room_path(@entry.room),notice: "Entry was successfully created." }
       else
         format.html { render :new }
       end
@@ -33,6 +33,6 @@ class EntriesController < ApplicationController
     end
 
     def entry_params
-      params.require(:entry).permit(:use_name,:user_email,:reserved_date,:usage_time,:room_id,:people)
+      params.require(:entry).permit(:user_name,:user_email,:reserved_date,:usage_time,:room_id,:people)
     end
 end

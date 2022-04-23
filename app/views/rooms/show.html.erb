@@ -18,6 +18,10 @@
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
 
+<p>
+  <%= link_to '予約登録',new_entry_path(room_id: @room.id) %>
+</p>
+
 <% @room.entries.each do |entry| %>
   <%= render 'entries/index' ,entry: entry %>
 <% end %>

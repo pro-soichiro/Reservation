@@ -1,2 +1,5 @@
-<h1>Entries#new</h1>
-<p>Find me in app/views/entries/new.html.erb</p>
+<h1>予約登録</h1>
+
+<%= render 'form', entry: @entry %>
+
+<%= link_to 'Back', room_path(@entry.room) %>
