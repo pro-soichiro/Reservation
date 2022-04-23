@@ -21,5 +21,5 @@
   <%= @entry.people %>人
 </p>
 
-<%= render 'confirm', entry: @entry, url: entries_path, submit: 'OK' %>
-<%= render 'confirm', entry: @entry, url: confirm_back_entries_path, submit: 'NG' %>
+<%= render 'confirm', entry: @entry, url: room_entries_path, submit: 'OK' %>
+<%= render 'confirm', entry: @entry, url: confirm_back_room_entries_path, submit: 'NG' %>
