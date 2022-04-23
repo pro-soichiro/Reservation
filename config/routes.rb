@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root to: 'top#index'
   resources :rooms
   resources :entries, except: [:show,:update,:edit], path: :rentals do
