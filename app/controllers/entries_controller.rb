@@ -18,12 +18,15 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    @entry.destroy
-
     respond_to do |format|
-      format.html { redirect_to @entry.room, notice: "予約をキャンセルしました。" }
-      format.json { head :no_content }
+      if @entry.destroy
+        # format.html { redirect_to room_path(@entry.room), notion: "予約をキャンセルしました。"}
+        format.js
+      else
+        format.js { head :no_content }
+      end
     end
+
   end
 
   def index
