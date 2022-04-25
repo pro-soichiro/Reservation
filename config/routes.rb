@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :auths, only: [:new,:create,:destroy]
   resources :users
   root to: 'top#index'
   resources :rooms, shallow: true do
