@@ -1,15 +1,30 @@
-<tr>
-  <th>予約者名</th>
-  <td><%= entry.user_name %></td>
-  <th>Email</th>
-  <td><%= entry.user_email %></td>
-  <th>日付</th>
-  <td><%= entry.reserved_date %></td>
-  <th>時間</th>
-  <td><%= entry.usage_time %></td>
-  <th>人数</th>
-  <td><%= entry.people %>人</td>
-  <td>
-    <%= link_to '削除', entry_path(entry.id), method: :delete, remote: true, data: {confirm: "予約を削除してよろしいでしょうか？"}  %>
-  </td>
-</tr>
+<table>
+  <thead>
+    <tr>
+      <th><%= Entry.human_attribute_name('user_name') %></th>
+      <th><%= Entry.human_attribute_name('user_email') %></th>
+      <th><%= Entry.human_attribute_name('reserved_date') %></th>
+      <th><%= Entry.human_attribute_name('usage_time') %></th>
+      <th><%= Entry.human_attribute_name('people') %></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @room.entries.each do |entry| %>
+      <tr>
+        <td><%= entry.user_name %></td>
+        <td><%= entry.user_email %></td>
+        <td><%= entry.reserved_date %></td>
+        <td><%= entry.usage_time %></td>
+        <td><%= entry.people %></td>
+        <td>
+          <%= link_to t("message.cancel", model: entry.model_name.human),
+            entry, method: :delete, remote: true,
+            data: { confirm: t("message.cancel_confirm",
+            model: entry.model_name.human)},
+            class: "button_cancel" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

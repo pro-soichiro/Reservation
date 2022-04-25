@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      room: Room
+      user: User
+      entry: Entry
+    attributes:
+      room:
+        name: Name
+        place: Place
+        number: Number
+      user:
+        mame: Name
+        email: Email
+      entry:
+        user_name: "User Name"
+        user_email: "User Email"
+        reserved_date: "Reserved Date"
+        usage_time: "Usage Time"
+        people:  People
+    activemodel:
+      models:
+        auth: Auth
+      attributes:
+        auth:
+          email: Email
+          password: Password

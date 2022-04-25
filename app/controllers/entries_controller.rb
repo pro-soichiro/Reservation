@@ -8,25 +8,18 @@ class EntriesController < ApplicationController
 
   def create
 
-    respond_to do |format|
-      if @entry.save
-        format.html { redirect_to room_path(@entry.room),notice: "予約が完了しました！" }
-      else
-        format.html { render :new }
-      end
+    if @entry.save
+      redirect_to @entry.room, notice: t('message.complate'), model: @entry.model_name.human
+    else
+      render :new
     end
   end
 
   def destroy
+    @entry.destroy
     respond_to do |format|
-      if @entry.destroy
-        # format.html { redirect_to room_path(@entry.room), notion: "予約をキャンセルしました。"}
-        format.js
-      else
-        format.js { head :no_content }
-      end
+      format.js { head :no_content }
     end
-
   end
 
   def index

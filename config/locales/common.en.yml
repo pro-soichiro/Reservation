@@ -1,0 +1,38 @@
+ja:
+  button:
+    edit: Edit
+    back: Back
+    show: Show
+    index: Index
+    destroy: Destroy
+    cancel: Cancel
+    new_data: "New Data"
+    login: Login
+    logout: Logout
+    top: Top
+    send: Send
+  word:
+    index: Index
+    list: List
+    new: New
+    register: Register
+    login: Login
+    confirm_ng: "Confirm NG"
+    confirm_ok: "Confirm OK"
+  message:
+    welcome: "Welcome to Booking Management!!"
+    complete: "%{model} Completion"
+    cancel_complete: "%{model} Cancellation completed"
+    register_complete: "%{model} Completion of registration"
+    delete_complete: "%{model} Deletion completed"
+    update_complete: "%{model} Update completed"
+    register: "%{model} Register"
+    list: "%{model} List"
+    edit: "%{model} Edit"
+    cancel: "%{model} Cancel"
+    cancel_confirm: "%{model} Do you want to release it?"
+    delete_confirm: "%{model} Do you want to delete it?"
+    incorrect_name: "incorrect name"
+    incorrect_number: "Please specify in multiples of 5"
+  errors:
+    header: " %{count} prohibited this %{model} from being saved."
