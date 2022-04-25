@@ -1,5 +1,5 @@
 <h1>予約登録</h1>
 
-<%= render 'form', entry: @entry %>
+<%= render partial: 'form',locals: { entry: @entry }%>
 
-<%= link_to 'Back', @entry.room %>
+<%= link_to '戻る', @entry.room %>

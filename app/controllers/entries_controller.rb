@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to room_path(@entry.room),notice: "Entry was successfully created." }
+        format.html { redirect_to room_path(@entry.room),notice: "予約が完了しました！" }
       else
         format.html { render :new }
       end
@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
     @entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to @entry.room, notice: "Entry was successfully destroyed." }
+      format.html { redirect_to @entry.room, notice: "予約をキャンセルしました。" }
       format.json { head :no_content }
     end
   end

@@ -14,31 +14,31 @@
   <%= form.hidden_field :room_id %>
 
   <div class="field">
-    <%= form.label :user_name %>
+    <%= form.label :使用者名 %>
     <%= form.text_field :user_name %>
   </div>
 
   <div class="field">
-    <%= form.label :user_email %>
+    <%= form.label :Email %>
     <%= form.email_field :user_email %>
   </div>
 
   <div class="field">
-    <%= form.label :reserved_date %>
+    <%= form.label :予約日 %>
     <%= form.date_field :reserved_date %>
   </div>
 
   <div class="field">
-    <%= form.label :usage_time %>
+    <%= form.label :予約時間 %>
     <%= form.text_field :usage_time %>
   </div>
 
   <div class="field">
-    <%= form.label :people %>
+    <%= form.label :予約人数 %>
     <%= form.number_field :people %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '予約確認' %>
   </div>
 <% end %>

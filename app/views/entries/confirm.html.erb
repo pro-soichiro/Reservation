@@ -21,5 +21,5 @@
   <%= @entry.people %>人
 </p>
 
-<%= render 'confirm', entry: @entry, url: room_entries_path, submit: 'OK' %>
-<%= render 'confirm', entry: @entry, url: confirm_back_room_entries_path, submit: 'NG' %>
+<%= render partial: 'confirm', locals: { entry: @entry, url: room_entries_path, submit: '予約確定' } %>
+<%= render partial: 'confirm', locals: { entry: @entry, url: confirm_back_room_entries_path, submit: '訂正する'} %>
