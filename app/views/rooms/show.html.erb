@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>会議室名:</strong>
   <%= @room.name %>
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong>場所:</strong>
   <%= @room.place %>
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>収容人数:</strong>
   <%= @room.number %>
 </p>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<%= link_to '編集', edit_room_path(@room) %> |
+<%= link_to '戻る', rooms_path %>
 
 <p>
-  <%= link_to '予約登録',new_room_entry_path(room_id: @room.id) %>
+  <%= link_to '予約登録',new_room_entry_path(room_id: @room.id), class: "btn entry-btn" %>
 </p>
 
 <% @room.entries.each do |entry| %>
