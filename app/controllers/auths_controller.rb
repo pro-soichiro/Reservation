@@ -7,8 +7,11 @@ class AuthsController < ApplicationController
   end
 
   def create
-    # ms_sample@sample.com
-    @auth = User.find_by(email: auth_params[:email],password: auth_params[:password])
+    auth = User.find_by(email: auth_params[:email] )
+    if BCrypt::Password.new(auth.password) == auth_params[:password]
+      @auth = auth
+    end
+
     unless @auth.nil?
       session[:user_id] = @auth.id
       redirect_to root_path
