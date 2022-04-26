@@ -3,12 +3,13 @@ class EntriesController < ApplicationController
   before_action :set_params, only: [:create,:confirm,:confirm_back]
 
   def new
-    @entry = Entry.new(room_id: params[:room_id])
+    @entry = Entry.new(user_name: current_user.name, user_email: current_user.email, room_id: params[:room_id])
   end
 
   def create
 
     if @entry.save
+      # TODO: notionメッセージの表示
       redirect_to @entry.room, notice: t('message.complate'), model: @entry.model_name.human
     else
       render :new
@@ -16,9 +17,13 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    @entry.destroy
-    respond_to do |format|
-      format.js { head :no_content }
+    # TODO: 条件判定はnameではなくidなどで行うので変更する
+    if @entry.user_name == current_user.name
+      respond_to do |format|
+        @entry.destroy
+        # TODO: notionメッセージの表示
+        format.js { head :no_content }
+      end
     end
   end
 

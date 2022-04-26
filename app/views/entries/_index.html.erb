@@ -18,11 +18,14 @@
         <td><%= entry.usage_time %></td>
         <td><%= entry.people %></td>
         <td>
-          <%= link_to t("message.cancel", model: entry.model_name.human),
-            entry, method: :delete, remote: true,
-            data: { confirm: t("message.cancel_confirm",
-            model: entry.model_name.human)},
-            class: "button_cancel" %>
+          <%# TODO: 条件判定はnameではなくidの方がいいので変更必須 %>
+          <% if entry.user_name == current_user.name %>
+            <%= link_to t("message.cancel", model: entry.model_name.human),
+              entry, method: :delete, remote: true,
+              data: { confirm: t("message.cancel_confirm",
+              model: entry.model_name.human)},
+              class: "button_cancel" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
