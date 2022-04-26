@@ -6,6 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create!(
+  name: "admin_user",
+  email: "admin_sample@sample.com",
+  password: "admin_password",
+  admin: true
+)
+
+5.times do |n|
+  User.create!(
+    name: "user#{n+1}",
+    email: "user#{n+1}_sample@sample.com",
+    password: "password"
+  )
+end
+
 30.times do |n|
   Room.create!(
     name:"部屋名#{n+1}#00",
