@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :admin_check, only: %i[ new create edit update destroy ]
 
   # GET /rooms or /rooms.json
   def index
@@ -67,5 +68,11 @@ class RoomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:name, :place, :number)
+    end
+
+    def admin_check
+      unless current_user.admin
+        redirect_to root_path
+      end
     end
 end

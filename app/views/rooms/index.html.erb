@@ -20,13 +20,16 @@
         <td><%= room.place %></td>
         <td><%= room.number %></td>
         <td><%= link_to '詳細', room %></td>
-        <td><%= link_to '編集', edit_room_path(room) %></td>
-        <td><%= link_to '削除', room, method: :delete, data: { confirm: 'この会議室を削除してよろしいでしょうか?' } %></td>
+        <% if current_user.admin %>
+          <td><%= link_to '編集', edit_room_path(room) %></td>
+          <td><%= link_to '削除', room, method: :delete, data: { confirm: 'この会議室を削除してよろしいでしょうか?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to '会議室登録', new_room_path, class: "btn new-btn" %>
+<% if current_user.admin %>
+  <%= link_to '会議室登録', new_room_path, class: "btn new-btn" %>
+<% end %>
