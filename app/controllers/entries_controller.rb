@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
 
     if @entry.save
       # TODO: notionメッセージの表示
+      NoticeMailer.alert(@entry).deliver_now
       redirect_to @entry.room, notice: t('message.complate'), model: @entry.model_name.human
     else
       render :new

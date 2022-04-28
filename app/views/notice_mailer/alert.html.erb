@@ -1,0 +1,26 @@
+<h1>会議室予約完了のお知らせ</h1>
+
+<p>
+  <%= @greeting %>
+  会議室の登録が完了しましたことをご連絡いたします。
+</p>
+<table>
+  <tr>
+    <th>予約日時</th>
+    <td>
+      <%= @reserved_date %>
+    </td>
+  </tr>
+  <tr>
+    <th>利用時間</th>
+    <td>
+      <%= @usage_time %>
+    </td>
+  </tr>
+  <tr>
+    <th>予約人数</th>
+    <td>
+      <%= @people %>
+    </td>
+  </tr>
+</table>
