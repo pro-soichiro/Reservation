@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 <p>
+  <strong>images:</strong>
+  <% @room.images.each do |image| %>
+    <%= image_tag image, class: "image" %>
+  <% end %>
+</p>
+<p>
   <strong><%= Room.human_attribute_name('name') %>:</strong>
   <%= @room.name %>
 </p>
