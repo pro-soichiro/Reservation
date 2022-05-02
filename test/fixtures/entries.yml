@@ -1,25 +1,18 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-zero:
-  user_name: 
-  user_email: MyString
-  reserved_date: 2022-04-04 04:00:27
-  usage_time: 1.5
-  room_id: 1
-  people: 1
-  
 one:
-  user_name: MyString
-  user_email: MyString
-  reserved_date: 2022-04-04 04:00:27
-  usage_time: 1.5
-  room_id: 1
-  people: 1
-
+  reserved_date: 2019-05-19 10:30:00
+  usage_time: 2
+  room: two
+  people: 3
+  user: one
 two:
-  user_name: MyString
-  user_email: MyString
-  reserved_date: 2022-04-04 04:00:27
-  usage_time: 1.5
-  room_id: 1
-  people: 1
+  reserved_date: 2019-05-25 13:00:00
+  usage_time: 3
+  room: two
+  people: 13
+  user: three
+three:
+  reserved_date: 2019-05-21 15:00:00
+  usage_time: 3
+  room: two
+  people: 8
+  user: two
