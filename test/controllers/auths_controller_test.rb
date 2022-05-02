@@ -1,19 +1,13 @@
 require 'test_helper'
 
 class AuthsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get auths_new_url
-    assert_response :success
+  test "ログイン画面呼び出し" do
   end
-
-  test "should get create" do
-    get auths_create_url
-    assert_response :success
+  test "ログイン処理" do
   end
-
-  test "should get destroy" do
-    get auths_destroy_url
-    assert_response :success
+  test "ログイン失敗処理" do
+  end
+  test "ログアウト処理" do
   end
 
 end
