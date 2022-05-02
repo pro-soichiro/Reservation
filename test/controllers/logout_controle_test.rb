@@ -16,31 +16,42 @@ class LogoutControlTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "会議室編集の接続" do
-    get edit_room_url(rooms(:one))
+    get edit_room_url(rooms(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "会議室削除の接続" do
-    delete room_url(rooms(:one))
+    delete room_url(rooms(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "予約登録の接続" do
-    get new_room_entry_url(rooms(:one))
+    get new_room_entry_url(rooms(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "予約取り消しの接続" do
-    delete entry_url(entries(:one))
+    delete entry_url(entries(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "ユーザー登録処理（サインアップ）" do
     get new_user_url(locale: "ja")
     assert_response :success
+
+    post users_url(locale: "ja"),
+      params: {
+        user: {
+          name: "sample_test",
+          email: "sample@sample.com",
+          password: "password" }
+      }
+    assert_redirected_to user_url(User.last, locale: "ja")
+    assert_equal "User was successfully created.",flash[:notice]
+
   end
   test "ユーザー編集の接続" do
-    get edit_user_url(users(:one))
+    get edit_user_url(users(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
   test "ユーザー削除の接続" do
-    delete user_url(users(:one))
+    delete user_url(users(:one), locale: "ja")
     assert_redirected_to new_auths_url(locale: "ja")
   end
 end
