@@ -3,6 +3,6 @@ class Auth
   attr_accessor :email,:password
 
 
-  # validates :email,:password, precense: true
+  validates :email,:password, presence: true
 
 end
