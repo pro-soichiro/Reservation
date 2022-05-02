@@ -14,7 +14,7 @@
       <tr>
         <td><%= entry.user_name %></td>
         <td><%= entry.user_email %></td>
-        <td><%= entry.reserved_date %></td>
+        <td><%= entry.reserved_date.strftime("%Y/%m/%d %H:%M") %></td>
         <td><%= entry.usage_time %></td>
         <td><%= entry.people %></td>
         <td>
