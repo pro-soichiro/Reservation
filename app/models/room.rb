@@ -4,8 +4,8 @@ class Room < ApplicationRecord
 
   before_validation :room_name_checker
 
-  validates :name, :place, :number, presence: true
-  # validates :name, :place, :number, :images, presence: true
+  # validates :name, :place, :number, presence: true
+  validates :name, :place, :number, :images , presence: true
   validates :name, length: {maximum: 30}
   validates :place, inclusion: {in: ["東京","大阪","福岡","札幌","仙台","名古屋","金沢"]}
   validates :number, numericality: {greater_than_or_equal_to: 5}
@@ -17,7 +17,8 @@ class Room < ApplicationRecord
   private
 
   def five_number
-    unless self.number % 5 == 0
+    # unless self.number % 5 == 0
+    if (self.number.to_i % 5) != 0
       errors.add(:number, "収容人数は5の倍数で指定してください")
     end
   end
