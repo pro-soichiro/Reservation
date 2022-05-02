@@ -9,7 +9,7 @@
       <th>部屋名</th>
       <th>場所</th>
       <th>収容人数</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -19,6 +19,11 @@
         <td><%= room.name %></td>
         <td><%= room.place %></td>
         <td><%= room.number %></td>
+        <td>
+          <% room.images.each do |image| %>
+            <%= image_tag image, class:"room_images" %>
+          <% end %>
+        </td>
         <td><%= link_to '詳細', room %></td>
         <% if current_user.admin %>
           <td><%= link_to '編集', edit_room_path(room) %></td>
