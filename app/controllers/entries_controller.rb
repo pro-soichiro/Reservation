@@ -3,7 +3,8 @@ class EntriesController < ApplicationController
   before_action :set_params, only: [:create,:confirm,:confirm_back]
 
   def new
-    @entry = Entry.new(user_name: current_user.name, user_email: current_user.email, room_id: params[:room_id])
+    @entry = current_user.entries.new(room_id: params[:room_id])
+    # @entry = Entry.new(user_id: current_user, room_id: params[:room_id])
   end
 
   def create
@@ -33,9 +34,9 @@ class EntriesController < ApplicationController
   end
 
   def confirm
-    @entry.valid?
-    # TODO: バリデーションチェックが必要です。
-
+    if @entry.invalid?
+      render :new
+    end
   end
 
   def confirm_back
@@ -44,14 +45,14 @@ class EntriesController < ApplicationController
 
   private
     def set_entry
-      @entry = Entry.find(params[:id])
+      @entry = current_user.entries.find(params[:id])
     end
 
     def set_params
-      @entry = Entry.new(entry_params)
+      @entry = current_user.entries.new(entry_params)
     end
 
     def entry_params
-      params.require(:entry).permit(:user_name,:user_email,:reserved_date,:usage_time,:room_id,:people)
+      params.require(:entry).permit(:user_id,:reserved_date,:usage_time,:room_id,:people)
     end
 end

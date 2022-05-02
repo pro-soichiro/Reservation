@@ -29,11 +29,22 @@ end
     terms_of_use: "#{n+1}人以上で使用しないこと"
   )
   Entry.create!(
-    user_name:"予約者名#{n+1}",
-    user_email:"reserved_email#{n+1}@samplemail.com",
+    user_id: 1,
     reserved_date:"2022-04-#{n+1} 00:00:00",
     usage_time: n+1.to_f,
     room_id: n+1,
     people: n+1
   )
+end
+
+5.times do |n|
+  30.times do |m|
+    Entry.create!(
+      user_id: 2+n,
+      reserved_date:"2022-05-#{m+1} 00:00:00",
+      usage_time: n+1.to_f,
+      room_id: m+1,
+      people: m+1
+    )
+  end
 end

@@ -6,12 +6,12 @@ class NoticeMailer < ApplicationMailer
   #   en.notice_mailer.alert.subject
   #
   def alert(event)
-    @greeting = "#{event.user_name}さん、申し込みありがとうございます！"
+    @greeting = "#{event.user.name}さん、申し込みありがとうございます！"
     @reserved_date = event.reserved_date
     @usage_time = event.usage_time
     @people = event.people
 
-    mail to: event.user_email,
+    mail to: event.user.email,
       subject: "会議室予約完了"
   end
 end

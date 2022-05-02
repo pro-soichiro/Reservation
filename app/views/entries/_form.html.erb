@@ -14,13 +14,11 @@
   <%= form.hidden_field :room_id %>
 
   <div class="field">
-    <%= form.label :使用者名 %>
-    <%= form.text_field :user_name %>
+    <%= current_user.name %>
   </div>
 
   <div class="field">
-    <%= form.label :Email %>
-    <%= form.email_field :user_email %>
+    <%= current_user.email %>
   </div>
 
   <div class="field">

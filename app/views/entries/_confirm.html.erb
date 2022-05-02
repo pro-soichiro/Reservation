@@ -1,6 +1,5 @@
 <%= form_with(model: entry, url: url, local: true) do |form| %>
-  <%= form.hidden_field :user_name %>
-  <%= form.hidden_field :user_email %>
+  <%= form.hidden_field :user_id %>
   <%= form.hidden_field :reserved_date %>
   <%= form.hidden_field :room_id %>
   <%= form.hidden_field :usage_time %>

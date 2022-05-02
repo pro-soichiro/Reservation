@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   before_save :chenge_password
 
+  has_many :entries, dependent: :destroy
+
   validates :name, :email, :password, presence: :true
   validates :email, uniqueness: true
 
