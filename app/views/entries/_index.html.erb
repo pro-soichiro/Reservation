@@ -18,7 +18,6 @@
         <td><%= entry.usage_time %></td>
         <td><%= entry.people %></td>
         <td>
-          <%# TODO: 条件判定はnameではなくidの方がいいので変更必須 %>
           <% if entry.user == current_user %>
             <%= link_to t("message.cancel", model: entry.model_name.human),
               entry, method: :delete, remote: true,
