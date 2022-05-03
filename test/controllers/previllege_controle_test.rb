@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PrevillegeControlTest < ActionDispatch::IntegrationTest
+class PrevillegeControleTest < ActionDispatch::IntegrationTest
   setup do
     # ログイン処理（非特権ユーザー）
     post auths_url(locale: "ja"),
@@ -40,7 +40,7 @@ class PrevillegeControlTest < ActionDispatch::IntegrationTest
     post room_entries_url(locale: "ja"),
       params: {entry: {reserved_date: Time.now,
         usage_time: 1, people: 5, room_id: rooms(:two).id}}
-    assert_equal flash[:notice], "予約完了"
+    assert_equal flash[:notice], I18n.t("message.complate")
     assert_redirected_to room_url(rooms(:two), locale: "ja")
   end
   test "異なるユーザーの予約取り消し処理(entry/destroy)" do
