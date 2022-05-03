@@ -12,20 +12,20 @@ class EntriesController < ApplicationController
     if @entry.save
       # TODO: notionメッセージの表示
       NoticeMailer.alert(@entry).deliver_now
-      redirect_to @entry.room, notice: t('message.complate'), model: @entry.model_name.human
+      redirect_to @entry.room, notice: t('message.complate', model: @entry.model_name.human)
     else
       render :new
     end
   end
 
   def destroy
-    # TODO: 条件判定はnameではなくidなどで行うので変更する
-    if @entry.user_name == current_user.name
+    if current_user == @entry.user
+      @entry.destroy
       respond_to do |format|
-        @entry.destroy
-        # TODO: notionメッセージの表示
         format.js { head :no_content }
       end
+    else
+      redirect_to root_path
     end
   end
 

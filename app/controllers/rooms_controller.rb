@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to room_url(@room), notice: "Room was successfully updated." }
+        format.html { redirect_to room_url(@room), notice: I18n.t("message.update_complete", model: Room.model_name.human) }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
     @room.destroy
 
     respond_to do |format|
-      format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
+      format.html { redirect_to rooms_url, notice: I18n.t("message.delete_complete", model: Room.model_name.human) }
       format.json { head :no_content }
     end
   end
